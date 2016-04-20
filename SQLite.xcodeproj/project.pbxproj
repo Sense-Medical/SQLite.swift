@@ -8,18 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		03A65E641C6BB0F60062603F /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A65E5A1C6BB0F50062603F /* SQLite.framework */; };
-		03A65E711C6BB2CD0062603F /* usr/include/sqlite3.h in Headers */ = {isa = PBXBuildFile; fileRef = EE91808B1C46E34A0038162A /* usr/include/sqlite3.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03A65E721C6BB2D30062603F /* SQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = EE247AD61C3F04ED00AE3E12 /* SQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03A65E731C6BB2D80062603F /* Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF71C3F06E900AE3E12 /* Foundation.swift */; };
 		03A65E741C6BB2DA0062603F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF81C3F06E900AE3E12 /* Helpers.swift */; };
-		03A65E751C6BB2DF0062603F /* SQLite-Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = EE91808D1C46E5230038162A /* SQLite-Bridging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03A65E761C6BB2E60062603F /* Blob.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AEE1C3F06E900AE3E12 /* Blob.swift */; };
 		03A65E771C6BB2E60062603F /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AEF1C3F06E900AE3E12 /* Connection.swift */; };
-		03A65E781C6BB2EA0062603F /* fts3_tokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = EE247AF01C3F06E900AE3E12 /* fts3_tokenizer.h */; };
-		03A65E791C6BB2EF0062603F /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF11C3F06E900AE3E12 /* SQLite-Bridging.m */; };
 		03A65E7A1C6BB2F70062603F /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF21C3F06E900AE3E12 /* Statement.swift */; };
 		03A65E7B1C6BB2F70062603F /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF31C3F06E900AE3E12 /* Value.swift */; };
-		03A65E7C1C6BB2F70062603F /* FTS4.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF51C3F06E900AE3E12 /* FTS4.swift */; };
+		03A65E7C1C6BB2F70062603F /* FTS5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF51C3F06E900AE3E12 /* FTS5.swift */; };
 		03A65E7D1C6BB2F70062603F /* R*Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF61C3F06E900AE3E12 /* R*Tree.swift */; };
 		03A65E7E1C6BB2FB0062603F /* AggregateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AFA1C3F06E900AE3E12 /* AggregateFunctions.swift */; };
 		03A65E7F1C6BB2FB0062603F /* Collation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AFB1C3F06E900AE3E12 /* Collation.swift */; };
@@ -36,7 +32,7 @@
 		03A65E8A1C6BB3030062603F /* CoreFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B1E1C3F137700AE3E12 /* CoreFunctionsTests.swift */; };
 		03A65E8B1C6BB3030062603F /* CustomFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B1F1C3F137700AE3E12 /* CustomFunctionsTests.swift */; };
 		03A65E8C1C6BB3030062603F /* ExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B201C3F137700AE3E12 /* ExpressionTests.swift */; };
-		03A65E8D1C6BB3030062603F /* FTS4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B211C3F137700AE3E12 /* FTS4Tests.swift */; };
+		03A65E8D1C6BB3030062603F /* FTS5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B211C3F137700AE3E12 /* FTS5Tests.swift */; };
 		03A65E8E1C6BB3030062603F /* OperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B2A1C3F141E00AE3E12 /* OperatorsTests.swift */; };
 		03A65E8F1C6BB3030062603F /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B2B1C3F141E00AE3E12 /* QueryTests.swift */; };
 		03A65E901C6BB3030062603F /* R*TreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B2C1C3F141E00AE3E12 /* R*TreeTests.swift */; };
@@ -45,16 +41,13 @@
 		03A65E931C6BB3030062603F /* StatementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B321C3F142E00AE3E12 /* StatementTests.swift */; };
 		03A65E941C6BB3030062603F /* ValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B331C3F142E00AE3E12 /* ValueTests.swift */; };
 		03A65E951C6BB3030062603F /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B161C3F127200AE3E12 /* TestHelpers.swift */; };
-		03A65E971C6BB3210062603F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A65E961C6BB3210062603F /* libsqlite3.tbd */; };
 		EE247AD71C3F04ED00AE3E12 /* SQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = EE247AD61C3F04ED00AE3E12 /* SQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE247ADE1C3F04ED00AE3E12 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE247AD31C3F04ED00AE3E12 /* SQLite.framework */; };
 		EE247B031C3F06E900AE3E12 /* Blob.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AEE1C3F06E900AE3E12 /* Blob.swift */; };
 		EE247B041C3F06E900AE3E12 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AEF1C3F06E900AE3E12 /* Connection.swift */; };
-		EE247B051C3F06E900AE3E12 /* fts3_tokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = EE247AF01C3F06E900AE3E12 /* fts3_tokenizer.h */; };
-		EE247B061C3F06E900AE3E12 /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF11C3F06E900AE3E12 /* SQLite-Bridging.m */; };
 		EE247B071C3F06E900AE3E12 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF21C3F06E900AE3E12 /* Statement.swift */; };
 		EE247B081C3F06E900AE3E12 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF31C3F06E900AE3E12 /* Value.swift */; };
-		EE247B091C3F06E900AE3E12 /* FTS4.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF51C3F06E900AE3E12 /* FTS4.swift */; };
+		EE247B091C3F06E900AE3E12 /* FTS5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF51C3F06E900AE3E12 /* FTS5.swift */; };
 		EE247B0A1C3F06E900AE3E12 /* R*Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF61C3F06E900AE3E12 /* R*Tree.swift */; };
 		EE247B0B1C3F06E900AE3E12 /* Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF71C3F06E900AE3E12 /* Foundation.swift */; };
 		EE247B0C1C3F06E900AE3E12 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF81C3F06E900AE3E12 /* Helpers.swift */; };
@@ -75,7 +68,7 @@
 		EE247B261C3F137700AE3E12 /* CoreFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B1E1C3F137700AE3E12 /* CoreFunctionsTests.swift */; };
 		EE247B271C3F137700AE3E12 /* CustomFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B1F1C3F137700AE3E12 /* CustomFunctionsTests.swift */; };
 		EE247B281C3F137700AE3E12 /* ExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B201C3F137700AE3E12 /* ExpressionTests.swift */; };
-		EE247B291C3F137700AE3E12 /* FTS4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B211C3F137700AE3E12 /* FTS4Tests.swift */; };
+		EE247B291C3F137700AE3E12 /* FTS5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B211C3F137700AE3E12 /* FTS5Tests.swift */; };
 		EE247B2E1C3F141E00AE3E12 /* OperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B2A1C3F141E00AE3E12 /* OperatorsTests.swift */; };
 		EE247B2F1C3F141E00AE3E12 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B2B1C3F141E00AE3E12 /* QueryTests.swift */; };
 		EE247B301C3F141E00AE3E12 /* R*TreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B2C1C3F141E00AE3E12 /* R*TreeTests.swift */; };
@@ -89,7 +82,7 @@
 		EE247B561C3F3FC700AE3E12 /* CoreFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B1E1C3F137700AE3E12 /* CoreFunctionsTests.swift */; };
 		EE247B571C3F3FC700AE3E12 /* CustomFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B1F1C3F137700AE3E12 /* CustomFunctionsTests.swift */; };
 		EE247B581C3F3FC700AE3E12 /* ExpressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B201C3F137700AE3E12 /* ExpressionTests.swift */; };
-		EE247B591C3F3FC700AE3E12 /* FTS4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B211C3F137700AE3E12 /* FTS4Tests.swift */; };
+		EE247B591C3F3FC700AE3E12 /* FTS5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B211C3F137700AE3E12 /* FTS5Tests.swift */; };
 		EE247B5A1C3F3FC700AE3E12 /* OperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B2A1C3F141E00AE3E12 /* OperatorsTests.swift */; };
 		EE247B5B1C3F3FC700AE3E12 /* QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B2B1C3F141E00AE3E12 /* QueryTests.swift */; };
 		EE247B5C1C3F3FC700AE3E12 /* R*TreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B2C1C3F141E00AE3E12 /* R*TreeTests.swift */; };
@@ -103,11 +96,9 @@
 		EE247B641C3F3FDB00AE3E12 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF81C3F06E900AE3E12 /* Helpers.swift */; };
 		EE247B651C3F3FEC00AE3E12 /* Blob.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AEE1C3F06E900AE3E12 /* Blob.swift */; };
 		EE247B661C3F3FEC00AE3E12 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AEF1C3F06E900AE3E12 /* Connection.swift */; };
-		EE247B671C3F3FEC00AE3E12 /* fts3_tokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = EE247AF01C3F06E900AE3E12 /* fts3_tokenizer.h */; };
-		EE247B681C3F3FEC00AE3E12 /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF11C3F06E900AE3E12 /* SQLite-Bridging.m */; };
 		EE247B691C3F3FEC00AE3E12 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF21C3F06E900AE3E12 /* Statement.swift */; };
 		EE247B6A1C3F3FEC00AE3E12 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF31C3F06E900AE3E12 /* Value.swift */; };
-		EE247B6B1C3F3FEC00AE3E12 /* FTS4.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF51C3F06E900AE3E12 /* FTS4.swift */; };
+		EE247B6B1C3F3FEC00AE3E12 /* FTS5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF51C3F06E900AE3E12 /* FTS5.swift */; };
 		EE247B6C1C3F3FEC00AE3E12 /* R*Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AF61C3F06E900AE3E12 /* R*Tree.swift */; };
 		EE247B6D1C3F3FEC00AE3E12 /* AggregateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AFA1C3F06E900AE3E12 /* AggregateFunctions.swift */; };
 		EE247B6E1C3F3FEC00AE3E12 /* Collation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247AFB1C3F06E900AE3E12 /* Collation.swift */; };
@@ -118,12 +109,9 @@
 		EE247B731C3F3FEC00AE3E12 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B001C3F06E900AE3E12 /* Query.swift */; };
 		EE247B741C3F3FEC00AE3E12 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B011C3F06E900AE3E12 /* Schema.swift */; };
 		EE247B751C3F3FEC00AE3E12 /* Setter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE247B021C3F06E900AE3E12 /* Setter.swift */; };
-		EE91808C1C46E34A0038162A /* usr/include/sqlite3.h in Headers */ = {isa = PBXBuildFile; fileRef = EE91808B1C46E34A0038162A /* usr/include/sqlite3.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE91808E1C46E5230038162A /* SQLite-Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = EE91808D1C46E5230038162A /* SQLite-Bridging.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE91808F1C46E76D0038162A /* SQLite-Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = EE91808D1C46E5230038162A /* SQLite-Bridging.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE9180901C46E8980038162A /* usr/include/sqlite3.h in Headers */ = {isa = PBXBuildFile; fileRef = EE91808B1C46E34A0038162A /* usr/include/sqlite3.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE9180941C46EA210038162A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9180931C46EA210038162A /* libsqlite3.tbd */; };
-		EE9180951C46EBCC0038162A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9180911C46E9D30038162A /* libsqlite3.tbd */; };
+		EE60C8EA1CC7A388003B9FE5 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = EE60C8E91CC7A388003B9FE5 /* sqlite3.c */; settings = {COMPILER_FLAGS = "-Wno-ambiguous-macro -Wno-shorten-64-to-32 -Wno-unreachable-code -Wno-#warnings"; }; };
+		EE60C8EB1CC7A388003B9FE5 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = EE60C8E91CC7A388003B9FE5 /* sqlite3.c */; settings = {COMPILER_FLAGS = "-Wno-ambiguous-macro -Wno-shorten-64-to-32 -Wno-unreachable-code -Wno-#warnings"; }; };
+		EE60C8EC1CC7A388003B9FE5 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = EE60C8E91CC7A388003B9FE5 /* sqlite3.c */; settings = {COMPILER_FLAGS = "-Wno-ambiguous-macro -Wno-shorten-64-to-32 -Wno-unreachable-code -Wno-#warnings"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,11 +157,9 @@
 		EE247AE41C3F04ED00AE3E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE247AEE1C3F06E900AE3E12 /* Blob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blob.swift; sourceTree = "<group>"; };
 		EE247AEF1C3F06E900AE3E12 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
-		EE247AF01C3F06E900AE3E12 /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fts3_tokenizer.h; sourceTree = "<group>"; };
-		EE247AF11C3F06E900AE3E12 /* SQLite-Bridging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SQLite-Bridging.m"; sourceTree = "<group>"; };
 		EE247AF21C3F06E900AE3E12 /* Statement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
 		EE247AF31C3F06E900AE3E12 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
-		EE247AF51C3F06E900AE3E12 /* FTS4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTS4.swift; sourceTree = "<group>"; };
+		EE247AF51C3F06E900AE3E12 /* FTS5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTS5.swift; sourceTree = "<group>"; };
 		EE247AF61C3F06E900AE3E12 /* R*Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "R*Tree.swift"; sourceTree = "<group>"; };
 		EE247AF71C3F06E900AE3E12 /* Foundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foundation.swift; sourceTree = "<group>"; };
 		EE247AF81C3F06E900AE3E12 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -194,7 +180,7 @@
 		EE247B1E1C3F137700AE3E12 /* CoreFunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreFunctionsTests.swift; sourceTree = "<group>"; };
 		EE247B1F1C3F137700AE3E12 /* CustomFunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFunctionsTests.swift; sourceTree = "<group>"; };
 		EE247B201C3F137700AE3E12 /* ExpressionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressionTests.swift; sourceTree = "<group>"; };
-		EE247B211C3F137700AE3E12 /* FTS4Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTS4Tests.swift; sourceTree = "<group>"; };
+		EE247B211C3F137700AE3E12 /* FTS5Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTS5Tests.swift; sourceTree = "<group>"; };
 		EE247B2A1C3F141E00AE3E12 /* OperatorsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperatorsTests.swift; sourceTree = "<group>"; };
 		EE247B2B1C3F141E00AE3E12 /* QueryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryTests.swift; sourceTree = "<group>"; };
 		EE247B2C1C3F141E00AE3E12 /* R*TreeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "R*TreeTests.swift"; sourceTree = "<group>"; };
@@ -211,8 +197,7 @@
 		EE247B911C3F822500AE3E12 /* installation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "installation@2x.png"; sourceTree = "<group>"; };
 		EE247B921C3F822600AE3E12 /* playground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playground@2x.png"; sourceTree = "<group>"; };
 		EE247B931C3F826100AE3E12 /* SQLite.swift.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = SQLite.swift.podspec; sourceTree = "<group>"; };
-		EE91808B1C46E34A0038162A /* usr/include/sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = usr/include/sqlite3.h; sourceTree = SDKROOT; };
-		EE91808D1C46E5230038162A /* SQLite-Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SQLite-Bridging.h"; sourceTree = "<group>"; };
+		EE60C8E91CC7A388003B9FE5 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sqlite3.c; path = Modules/sqlite3c/sqlite3.c; sourceTree = SOURCE_ROOT; };
 		EE9180911C46E9D30038162A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		EE9180931C46EA210038162A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -222,7 +207,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03A65E971C6BB3210062603F /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +229,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE9180941C46EA210038162A /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +244,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE9180951C46EBCC0038162A /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +355,6 @@
 		EE247AD51C3F04ED00AE3E12 /* SQLite */ = {
 			isa = PBXGroup;
 			children = (
-				EE91808B1C46E34A0038162A /* usr/include/sqlite3.h */,
 				EE247AD61C3F04ED00AE3E12 /* SQLite.h */,
 				EE247AF71C3F06E900AE3E12 /* Foundation.swift */,
 				EE247AF81C3F06E900AE3E12 /* Helpers.swift */,
@@ -381,6 +362,7 @@
 				EE247AED1C3F06E900AE3E12 /* Core */,
 				EE247AF41C3F06E900AE3E12 /* Extensions */,
 				EE247AF91C3F06E900AE3E12 /* Typed */,
+				EE60C8E81CC7A372003B9FE5 /* sqlite3 */,
 			);
 			path = SQLite;
 			sourceTree = "<group>";
@@ -394,7 +376,7 @@
 				EE247B1E1C3F137700AE3E12 /* CoreFunctionsTests.swift */,
 				EE247B1F1C3F137700AE3E12 /* CustomFunctionsTests.swift */,
 				EE247B201C3F137700AE3E12 /* ExpressionTests.swift */,
-				EE247B211C3F137700AE3E12 /* FTS4Tests.swift */,
+				EE247B211C3F137700AE3E12 /* FTS5Tests.swift */,
 				EE247B2A1C3F141E00AE3E12 /* OperatorsTests.swift */,
 				EE247B2B1C3F141E00AE3E12 /* QueryTests.swift */,
 				EE247B2C1C3F141E00AE3E12 /* R*TreeTests.swift */,
@@ -411,11 +393,8 @@
 		EE247AED1C3F06E900AE3E12 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				EE91808D1C46E5230038162A /* SQLite-Bridging.h */,
 				EE247AEE1C3F06E900AE3E12 /* Blob.swift */,
 				EE247AEF1C3F06E900AE3E12 /* Connection.swift */,
-				EE247AF01C3F06E900AE3E12 /* fts3_tokenizer.h */,
-				EE247AF11C3F06E900AE3E12 /* SQLite-Bridging.m */,
 				EE247AF21C3F06E900AE3E12 /* Statement.swift */,
 				EE247AF31C3F06E900AE3E12 /* Value.swift */,
 			);
@@ -425,7 +404,7 @@
 		EE247AF41C3F06E900AE3E12 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EE247AF51C3F06E900AE3E12 /* FTS4.swift */,
+				EE247AF51C3F06E900AE3E12 /* FTS5.swift */,
 				EE247AF61C3F06E900AE3E12 /* R*Tree.swift */,
 			);
 			path = Extensions;
@@ -482,6 +461,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		EE60C8E81CC7A372003B9FE5 /* sqlite3 */ = {
+			isa = PBXGroup;
+			children = (
+				EE60C8E91CC7A388003B9FE5 /* sqlite3.c */,
+			);
+			name = sqlite3;
+			path = ../Modules/sqlite3c;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -489,9 +477,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03A65E781C6BB2EA0062603F /* fts3_tokenizer.h in Headers */,
-				03A65E751C6BB2DF0062603F /* SQLite-Bridging.h in Headers */,
-				03A65E711C6BB2CD0062603F /* usr/include/sqlite3.h in Headers */,
 				03A65E721C6BB2D30062603F /* SQLite.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,9 +492,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE91808E1C46E5230038162A /* SQLite-Bridging.h in Headers */,
-				EE247B051C3F06E900AE3E12 /* fts3_tokenizer.h in Headers */,
-				EE91808C1C46E34A0038162A /* usr/include/sqlite3.h in Headers */,
 				EE247AD71C3F04ED00AE3E12 /* SQLite.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,10 +500,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE9180901C46E8980038162A /* usr/include/sqlite3.h in Headers */,
-				EE247B671C3F3FEC00AE3E12 /* fts3_tokenizer.h in Headers */,
 				EE247B621C3F3FDB00AE3E12 /* SQLite.h in Headers */,
-				EE91808F1C46E76D0038162A /* SQLite-Bridging.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,9 +748,9 @@
 				03A65E801C6BB2FB0062603F /* CoreFunctions.swift in Sources */,
 				03A65E761C6BB2E60062603F /* Blob.swift in Sources */,
 				03A65E7D1C6BB2F70062603F /* R*Tree.swift in Sources */,
-				03A65E791C6BB2EF0062603F /* SQLite-Bridging.m in Sources */,
 				03A65E7B1C6BB2F70062603F /* Value.swift in Sources */,
 				03A65E821C6BB2FB0062603F /* Expression.swift in Sources */,
+				EE60C8EC1CC7A388003B9FE5 /* sqlite3.c in Sources */,
 				03A65E731C6BB2D80062603F /* Foundation.swift in Sources */,
 				03A65E7F1C6BB2FB0062603F /* Collation.swift in Sources */,
 				03A65E861C6BB2FB0062603F /* Setter.swift in Sources */,
@@ -781,7 +760,7 @@
 				03A65E831C6BB2FB0062603F /* Operators.swift in Sources */,
 				03A65E851C6BB2FB0062603F /* Schema.swift in Sources */,
 				03A65E841C6BB2FB0062603F /* Query.swift in Sources */,
-				03A65E7C1C6BB2F70062603F /* FTS4.swift in Sources */,
+				03A65E7C1C6BB2F70062603F /* FTS5.swift in Sources */,
 				03A65E771C6BB2E60062603F /* Connection.swift in Sources */,
 				03A65E7E1C6BB2FB0062603F /* AggregateFunctions.swift in Sources */,
 			);
@@ -802,7 +781,7 @@
 				03A65E8A1C6BB3030062603F /* CoreFunctionsTests.swift in Sources */,
 				03A65E931C6BB3030062603F /* StatementTests.swift in Sources */,
 				03A65E911C6BB3030062603F /* SchemaTests.swift in Sources */,
-				03A65E8D1C6BB3030062603F /* FTS4Tests.swift in Sources */,
+				03A65E8D1C6BB3030062603F /* FTS5Tests.swift in Sources */,
 				03A65E8C1C6BB3030062603F /* ExpressionTests.swift in Sources */,
 				03A65E8E1C6BB3030062603F /* OperatorsTests.swift in Sources */,
 				03A65E951C6BB3030062603F /* TestHelpers.swift in Sources */,
@@ -826,16 +805,16 @@
 				EE247B0B1C3F06E900AE3E12 /* Foundation.swift in Sources */,
 				EE247B041C3F06E900AE3E12 /* Connection.swift in Sources */,
 				EE247B111C3F06E900AE3E12 /* Expression.swift in Sources */,
+				EE60C8EA1CC7A388003B9FE5 /* sqlite3.c in Sources */,
 				EE247B0C1C3F06E900AE3E12 /* Helpers.swift in Sources */,
 				EE247B0E1C3F06E900AE3E12 /* Collation.swift in Sources */,
 				EE247B151C3F06E900AE3E12 /* Setter.swift in Sources */,
 				EE247B101C3F06E900AE3E12 /* CustomFunctions.swift in Sources */,
-				EE247B091C3F06E900AE3E12 /* FTS4.swift in Sources */,
+				EE247B091C3F06E900AE3E12 /* FTS5.swift in Sources */,
 				EE247B081C3F06E900AE3E12 /* Value.swift in Sources */,
 				EE247B121C3F06E900AE3E12 /* Operators.swift in Sources */,
 				EE247B141C3F06E900AE3E12 /* Schema.swift in Sources */,
 				EE247B131C3F06E900AE3E12 /* Query.swift in Sources */,
-				EE247B061C3F06E900AE3E12 /* SQLite-Bridging.m in Sources */,
 				EE247B071C3F06E900AE3E12 /* Statement.swift in Sources */,
 				EE247B0D1C3F06E900AE3E12 /* AggregateFunctions.swift in Sources */,
 			);
@@ -846,7 +825,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE247B261C3F137700AE3E12 /* CoreFunctionsTests.swift in Sources */,
-				EE247B291C3F137700AE3E12 /* FTS4Tests.swift in Sources */,
+				EE247B291C3F137700AE3E12 /* FTS5Tests.swift in Sources */,
 				EE247B191C3F134A00AE3E12 /* SetterTests.swift in Sources */,
 				EE247B311C3F141E00AE3E12 /* SchemaTests.swift in Sources */,
 				EE247B171C3F127200AE3E12 /* TestHelpers.swift in Sources */,
@@ -870,9 +849,9 @@
 				EE247B6F1C3F3FEC00AE3E12 /* CoreFunctions.swift in Sources */,
 				EE247B651C3F3FEC00AE3E12 /* Blob.swift in Sources */,
 				EE247B6C1C3F3FEC00AE3E12 /* R*Tree.swift in Sources */,
-				EE247B681C3F3FEC00AE3E12 /* SQLite-Bridging.m in Sources */,
 				EE247B6A1C3F3FEC00AE3E12 /* Value.swift in Sources */,
 				EE247B711C3F3FEC00AE3E12 /* Expression.swift in Sources */,
+				EE60C8EB1CC7A388003B9FE5 /* sqlite3.c in Sources */,
 				EE247B631C3F3FDB00AE3E12 /* Foundation.swift in Sources */,
 				EE247B6E1C3F3FEC00AE3E12 /* Collation.swift in Sources */,
 				EE247B751C3F3FEC00AE3E12 /* Setter.swift in Sources */,
@@ -882,7 +861,7 @@
 				EE247B721C3F3FEC00AE3E12 /* Operators.swift in Sources */,
 				EE247B741C3F3FEC00AE3E12 /* Schema.swift in Sources */,
 				EE247B731C3F3FEC00AE3E12 /* Query.swift in Sources */,
-				EE247B6B1C3F3FEC00AE3E12 /* FTS4.swift in Sources */,
+				EE247B6B1C3F3FEC00AE3E12 /* FTS5.swift in Sources */,
 				EE247B661C3F3FEC00AE3E12 /* Connection.swift in Sources */,
 				EE247B6D1C3F3FEC00AE3E12 /* AggregateFunctions.swift in Sources */,
 			);
@@ -896,7 +875,7 @@
 				EE247B5A1C3F3FC700AE3E12 /* OperatorsTests.swift in Sources */,
 				EE247B541C3F3FC700AE3E12 /* BlobTests.swift in Sources */,
 				EE247B5D1C3F3FC700AE3E12 /* SchemaTests.swift in Sources */,
-				EE247B591C3F3FC700AE3E12 /* FTS4Tests.swift in Sources */,
+				EE247B591C3F3FC700AE3E12 /* FTS5Tests.swift in Sources */,
 				EE247B531C3F3FC700AE3E12 /* AggregateFunctionsTests.swift in Sources */,
 				EE247B5F1C3F3FC700AE3E12 /* StatementTests.swift in Sources */,
 				EE247B5C1C3F3FC700AE3E12 /* R*TreeTests.swift in Sources */,
@@ -938,13 +917,23 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Modules/sqlite3c",
+				);
 				INFOPLIST_FILE = SQLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"-DSQLITE_ENABLE_FTS5=1",
+					"-DSQLITE_HAVE_USLEEP=0",
+					"-DSQLITE_ENABLE_JSON1=1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stephencelis.SQLite;
 				PRODUCT_NAME = SQLite;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(SRCROOT)/Modules/sqlite3c";
 				"SWIFT_INCLUDE_PATHS[sdk=appletvos*]" = "$(SRCROOT)/CocoaPods/appletvos";
 				"SWIFT_INCLUDE_PATHS[sdk=appletvsimulator*]" = "$(SRCROOT)/CocoaPods/appletvsimulator";
 				TVOS_DEPLOYMENT_TARGET = 9.1;
@@ -958,13 +947,23 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Modules/sqlite3c",
+				);
 				INFOPLIST_FILE = SQLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"-DSQLITE_ENABLE_FTS5=1",
+					"-DSQLITE_HAVE_USLEEP=0",
+					"-DSQLITE_ENABLE_JSON1=1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stephencelis.SQLite;
 				PRODUCT_NAME = SQLite;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(SRCROOT)/Modules/sqlite3c";
 				"SWIFT_INCLUDE_PATHS[sdk=appletvos*]" = "$(SRCROOT)/CocoaPods/appletvos";
 				"SWIFT_INCLUDE_PATHS[sdk=appletvsimulator*]" = "$(SRCROOT)/CocoaPods/appletvsimulator";
 				TVOS_DEPLOYMENT_TARGET = 9.1;
@@ -1004,13 +1003,23 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Modules/sqlite3c",
+				);
 				INFOPLIST_FILE = SQLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"-DSQLITE_ENABLE_FTS5=1",
+					"-DSQLITE_HAVE_USLEEP=0",
+					"-DSQLITE_ENABLE_JSON1=1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stephencelis.SQLite;
 				PRODUCT_NAME = SQLite;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(SRCROOT)/Modules/sqlite3c";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -1025,13 +1034,23 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Modules/sqlite3c",
+				);
 				INFOPLIST_FILE = SQLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"-DSQLITE_ENABLE_FTS5=1",
+					"-DSQLITE_HAVE_USLEEP=0",
+					"-DSQLITE_ENABLE_JSON1=1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stephencelis.SQLite;
 				PRODUCT_NAME = SQLite;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(SRCROOT)/Modules/sqlite3c";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -1080,6 +1099,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Modules/sqlite3 $(inherit)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2,3";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1123,6 +1143,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Modules/sqlite3 $(inherit)";
 				TARGETED_DEVICE_FAMILY = "1,2,3";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1139,13 +1160,23 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Modules/sqlite3c",
+				);
 				INFOPLIST_FILE = SQLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"-DSQLITE_ENABLE_FTS5=1",
+					"-DSQLITE_HAVE_USLEEP=0",
+					"-DSQLITE_ENABLE_JSON1=1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stephencelis.SQLite;
 				PRODUCT_NAME = SQLite;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(SRCROOT)/Modules/sqlite3c";
 				"SWIFT_INCLUDE_PATHS[sdk=iphoneos*]" = "$(SRCROOT)/CocoaPods/iphoneos";
 				"SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]" = "$(SRCROOT)/CocoaPods/iphonesimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1161,13 +1192,23 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Modules/sqlite3c",
+				);
 				INFOPLIST_FILE = SQLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"-DSQLITE_ENABLE_FTS5=1",
+					"-DSQLITE_HAVE_USLEEP=0",
+					"-DSQLITE_ENABLE_JSON1=1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stephencelis.SQLite;
 				PRODUCT_NAME = SQLite;
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(SRCROOT)/Modules/sqlite3c";
 				"SWIFT_INCLUDE_PATHS[sdk=iphoneos*]" = "$(SRCROOT)/CocoaPods/iphoneos";
 				"SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]" = "$(SRCROOT)/CocoaPods/iphonesimulator";
 			};
@@ -1204,15 +1245,24 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Modules/sqlite3c",
+				);
 				INFOPLIST_FILE = SQLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_CFLAGS = (
+					"-DSQLITE_ENABLE_FTS5=1",
+					"-DSQLITE_HAVE_USLEEP=0",
+					"-DSQLITE_ENABLE_JSON1=1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stephencelis.SQLite;
 				PRODUCT_NAME = SQLite;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(SRCROOT)/Modules/sqlite3c";
 				"SWIFT_INCLUDE_PATHS[sdk=macosx*]" = "$(SRCROOT)/CocoaPods/macosx";
 			};
 			name = Debug;
@@ -1228,15 +1278,24 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Modules/sqlite3c",
+				);
 				INFOPLIST_FILE = SQLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_CFLAGS = (
+					"-DSQLITE_ENABLE_FTS5=1",
+					"-DSQLITE_HAVE_USLEEP=0",
+					"-DSQLITE_ENABLE_JSON1=1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.stephencelis.SQLite;
 				PRODUCT_NAME = SQLite;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(SRCROOT)/Modules/sqlite3c";
 				"SWIFT_INCLUDE_PATHS[sdk=macosx*]" = "$(SRCROOT)/CocoaPods/macosx";
 			};
 			name = Release;

@@ -37,7 +37,9 @@ extension NSData : Value {
         if let data = NSData.existingDataForBlob(dataValue) {
             return data
         }
-        return NSData(bytes: dataValue.bytes, length: dataValue.length)
+        let data = NSData(bytesNoCopy: UnsafeMutablePointer(dataValue.bytes), length: dataValue.length, freeWhenDone: false)
+        NSData.setExistingDataForBlob(data, blob: dataValue)
+        return data
     }
     
     public var datatypeValue: Blob {

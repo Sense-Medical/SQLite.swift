@@ -31,42 +31,13 @@ extension NSData : Value {
         return Blob.declaredDatatype
     }
     
-    #if os(iOS) || os(OSX) || os(tvOS) || os(watchOS)
-    
     public class func fromDatatypeValue(dataValue: Blob) -> NSData {
-        if let data = NSData.existingDataForBlob(dataValue) {
-            return data
-        }
-        let data = NSData(bytesNoCopy: UnsafeMutablePointer(dataValue.bytes), length: dataValue.length, freeWhenDone: false)
-        NSData.setExistingDataForBlob(data, blob: dataValue)
-        return data
+        return dataValue.data
     }
     
     public var datatypeValue: Blob {
-        let blob = Blob(bytes: self.bytes, length: self.length, freeWhenDone: false)
-        NSData.setExistingDataForBlob(self, blob: blob)
-        return blob
+        return Blob(data: self)
     }
-    
-    private static func existingDataForBlob(blob: Blob) -> NSData? {
-        return objc_getAssociatedObject(blob, &NSData.existingDataForBlobKey) as? NSData
-    }
-    private static func setExistingDataForBlob(data: NSData, blob: Blob) {
-        objc_setAssociatedObject(blob, &NSData.existingDataForBlobKey, data, .OBJC_ASSOCIATION_RETAIN)
-    }
-    private static var existingDataForBlobKey: UInt8 = 0
-    
-    #else
-    
-    public class func fromDatatypeValue(dataValue: Blob) -> NSData {
-        return NSData(bytes: dataValue.bytes, length: dataValue.length)
-    }
-    
-    public var datatypeValue: Blob {
-        return Blob(bytes: bytes, length: length)
-    }
-    
-    #endif
 
 }
 

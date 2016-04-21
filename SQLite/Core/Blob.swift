@@ -22,24 +22,44 @@
 // THE SOFTWARE.
 //
 
+import Foundation
+
+
 public final class Blob {
-
-    public let bytes: UnsafePointer<Void>
-    public let length: Int
-    private let freeWhenDone: Bool
-
-    public init(bytes: UnsafePointer<Void>, length: Int, freeWhenDone: Bool = true) {
-        self.bytes = bytes
-        self.length = length
-        self.freeWhenDone = freeWhenDone
+    
+    public let data: NSData
+    public var bytes: UnsafePointer<Void> {
+        return self.data.bytes
+    }
+    public var length: Int {
+        return self.data.length
     }
     
-    deinit {
-        if self.freeWhenDone {
-            UnsafeMutablePointer<Void>(self.bytes).dealloc(self.length)
+    public convenience init(bytes: [UInt8]) {
+        let buffer = UnsafeMutablePointer<UInt8>.alloc(bytes.count)
+        for idx in 0..<bytes.count {
+            buffer.advancedBy(idx).memory = bytes[idx]
         }
+        let data = NSData(
+            bytesNoCopy: UnsafeMutablePointer<Void>(buffer),
+            length: bytes.count,
+            freeWhenDone: true
+        )
+        self.init(data: data)
     }
+    
+    public convenience init(bytes: UnsafePointer<Void>, length: Int) {
+        self.init(data: NSData(bytes: bytes, length: length))
+    }
+    
+    public init(data: NSData) {
+        self.data = data
+    }
+    
+}
 
+extension Blob {
+    
     public func toHex() -> String {
         let bytes = UnsafePointer<UInt8>(self.bytes)
         
@@ -53,7 +73,7 @@ public final class Blob {
         }
         return hex
     }
-
+    
 }
 
 extension Blob : CustomStringConvertible {

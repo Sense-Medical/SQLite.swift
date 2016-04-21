@@ -22,24 +22,36 @@
 // THE SOFTWARE.
 //
 
-public struct Blob {
+public final class Blob {
 
-    public let bytes: [UInt8]
+    public let bytes: UnsafePointer<Void>
+    public let length: Int
+    private let freeWhenDone: Bool
 
-    public init(bytes: [UInt8]) {
+    public init(bytes: UnsafePointer<Void>, length: Int, freeWhenDone: Bool = true) {
         self.bytes = bytes
+        self.length = length
+        self.freeWhenDone = freeWhenDone
     }
-
-    public init(bytes: UnsafePointer<Void>, length: Int) {
-        self.init(bytes: [UInt8](UnsafeBufferPointer(
-            start: UnsafePointer(bytes), count: length
-        )))
+    
+    deinit {
+        if self.freeWhenDone {
+            UnsafeMutablePointer<Void>(self.bytes).dealloc(self.length)
+        }
     }
 
     public func toHex() -> String {
-        return bytes.map {
-            ($0 < 16 ? "0" : "") + String($0, radix: 16, uppercase: false)
-        }.joinWithSeparator("")
+        let bytes = UnsafePointer<UInt8>(self.bytes)
+        
+        var hex = ""
+        for idx in 0..<self.length {
+            let byte = bytes.advancedBy(idx).memory
+            if byte < 16 {
+                hex += "0"
+            }
+            hex += String(byte, radix: 16, uppercase: false)
+        }
+        return hex
     }
 
 }

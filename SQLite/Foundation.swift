@@ -24,21 +24,50 @@
 
 import Foundation
 
+
 extension NSData : Value {
 
     public class var declaredDatatype: String {
         return Blob.declaredDatatype
     }
-
+    
+    #if os(iOS) || os(OSX) || os(tvOS) || os(watchOS)
+    
     public class func fromDatatypeValue(dataValue: Blob) -> NSData {
-        return NSData(bytes: dataValue.bytes, length: dataValue.bytes.count)
+        if let data = NSData.existingDataForBlob(dataValue) {
+            return data
+        }
+        return NSData(bytes: dataValue.bytes, length: dataValue.length)
     }
-
+    
+    public var datatypeValue: Blob {
+        let blob = Blob(bytes: self.bytes, length: self.length, freeWhenDone: false)
+        NSData.setExistingDataForBlob(self, blob: blob)
+        return blob
+    }
+    
+    private static func existingDataForBlob(blob: Blob) -> NSData? {
+        return objc_getAssociatedObject(blob, &NSData.existingDataForBlobKey) as? NSData
+    }
+    private static func setExistingDataForBlob(data: NSData, blob: Blob) {
+        objc_setAssociatedObject(blob, &NSData.existingDataForBlobKey, data, .OBJC_ASSOCIATION_RETAIN)
+    }
+    private static var existingDataForBlobKey: UInt8 = 0
+    
+    #else
+    
+    public class func fromDatatypeValue(dataValue: Blob) -> NSData {
+        return NSData(bytes: dataValue.bytes, length: dataValue.length)
+    }
+    
     public var datatypeValue: Blob {
         return Blob(bytes: bytes, length: length)
     }
+    
+    #endif
 
 }
+
 
 extension NSDate : Value {
 

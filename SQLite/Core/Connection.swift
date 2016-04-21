@@ -514,7 +514,7 @@ public final class Connection {
             }
             let result = block(args: arguments)
             if let result = result as? Blob {
-                sqlite3_result_blob(context, result.bytes, Int32(result.bytes.count), nil)
+                sqlite3_result_blob(context, result.bytes, Int32(result.length), nil)
             } else if let result = result as? Double {
                 sqlite3_result_double(context, result)
             } else if let result = result as? Int64 {

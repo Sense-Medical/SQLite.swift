@@ -113,7 +113,7 @@ public final class Statement {
 
     /// - Parameter bindings: A list of parameters to bind to the statement.
     ///
-    /// - Throws: `Result.Error` if query execution fails.
+    /// - Throws: `SQLiteResult.Error` if query execution fails.
     ///
     /// - Returns: The statement object (useful for chaining).
     public func run(bindings: Binding?...) throws -> Statement {
@@ -128,7 +128,7 @@ public final class Statement {
 
     /// - Parameter bindings: A list of parameters to bind to the statement.
     ///
-    /// - Throws: `Result.Error` if query execution fails.
+    /// - Throws: `SQLiteResult.Error` if query execution fails.
     ///
     /// - Returns: The statement object (useful for chaining).
     public func run(bindings: [Binding?]) throws -> Statement {
@@ -138,7 +138,7 @@ public final class Statement {
     /// - Parameter bindings: A dictionary of named parameters to bind to the
     ///   statement.
     ///
-    /// - Throws: `Result.Error` if query execution fails.
+    /// - Throws: `SQLiteResult.Error` if query execution fails.
     ///
     /// - Returns: The statement object (useful for chaining).
     public func run(bindings: [String: Binding?]) throws -> Statement {

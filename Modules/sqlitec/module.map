@@ -1,0 +1,4 @@
+module sqlitec {
+    header "sqlite3.h"
+    export *
+}

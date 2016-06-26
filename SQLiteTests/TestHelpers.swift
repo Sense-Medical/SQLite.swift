@@ -11,7 +11,7 @@ class SQLiteTestCase : XCTestCase {
 
     override func setUp() {
         super.setUp()
-
+        
         db.trace { SQL in
             print(SQL)
             self.trace[SQL] = (self.trace[SQL] ?? 0) + 1

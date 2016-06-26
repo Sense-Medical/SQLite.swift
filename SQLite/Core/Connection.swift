@@ -23,7 +23,7 @@
 //
 
 import Dispatch
-import CSQLite
+import sqlcipherc
 
 /// A connection to SQLite.
 public final class Connection {

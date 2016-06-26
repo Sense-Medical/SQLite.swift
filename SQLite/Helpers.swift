@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 //
 
-import CSQLite
+import sqlcipherc
 
 public typealias Star = (Expression<Binding>?, Expression<Binding>?) -> Expression<Void>
 

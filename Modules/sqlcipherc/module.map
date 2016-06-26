@@ -1,0 +1,4 @@
+module sqlcipherc {
+    header "sqlite3.h"
+    export *
+}

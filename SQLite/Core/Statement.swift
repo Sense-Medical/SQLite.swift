@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 //
 
-import CSQLite
+import sqlcipherc
 
 /// A single SQL statement.
 public final class Statement {

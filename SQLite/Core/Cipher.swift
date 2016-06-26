@@ -24,8 +24,6 @@
 
 import sqlcipherc
 
-#if SQLITE_HAS_CODEC
-
 extension Connection {
     
     public func key(key: String) throws {
@@ -54,5 +52,3 @@ extension Connection {
     }
     
 }
-
-#endif

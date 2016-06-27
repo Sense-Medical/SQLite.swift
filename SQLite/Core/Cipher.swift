@@ -28,10 +28,7 @@ extension Connection {
     
     public func key(key: String) throws {
         try check(sqlite3_key(handle, key, Int32(key.utf8.count)))
-        try execute(
-            "CREATE TABLE \"__SQLCipher.swift__\" (\"cipher key check\");\n" +
-            "DROP TABLE \"__SQLCipher.swift__\";"
-        )
+        try execute("SELECT COUNT(*) FROM sqlite_master;")
     }
     
     public func rekey(key: String) throws {
@@ -41,10 +38,7 @@ extension Connection {
     public func key(key: Blob) throws {
         
         try check(sqlite3_key(handle, key.bytes, Int32(key.length)))
-        try execute(
-            "CREATE TABLE \"__SQLCipher.swift__\" (\"cipher key check\");\n" +
-            "DROP TABLE \"__SQLCipher.swift__\";"
-        )
+        try execute("SELECT COUNT(*) FROM sqlite_master;")
     }
     
     public func rekey(key: Blob) throws {

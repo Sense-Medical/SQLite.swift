@@ -20,11 +20,11 @@ class QueryTests : XCTestCase {
     func test_select_withExpression_compilesSelectClause() {
         AssertSQL("SELECT \"email\" FROM \"users\"", users.select(email))
     }
-    
+
     func test_select_withStarExpression_compilesSelectClause() {
         AssertSQL("SELECT * FROM \"users\"", users.select(*))
     }
-    
+
     func test_select_withNamespacedStarExpression_compilesSelectClause() {
         AssertSQL("SELECT \"users\".* FROM \"users\"", users.select(users[*]))
     }
@@ -59,12 +59,12 @@ class QueryTests : XCTestCase {
     func test_join_withExplicitType_compilesJoinClauseWithType() {
         AssertSQL(
             "SELECT * FROM \"users\" LEFT OUTER JOIN \"posts\" ON (\"posts\".\"user_id\" = \"users\".\"id\")",
-            users.join(.LeftOuter, posts, on: posts[userId] == users[id])
+            users.join(.leftOuter, posts, on: posts[userId] == users[id])
         )
 
         AssertSQL(
             "SELECT * FROM \"users\" CROSS JOIN \"posts\" ON (\"posts\".\"user_id\" = \"users\".\"id\")",
-            users.join(.Cross, posts, on: posts[userId] == users[id])
+            users.join(.cross, posts, on: posts[userId] == users[id])
         )
     }
 
@@ -192,7 +192,7 @@ class QueryTests : XCTestCase {
     func test_insert_withOnConflict_compilesInsertOrOnConflictExpression() {
         AssertSQL(
             "INSERT OR REPLACE INTO \"users\" (\"email\", \"age\") VALUES ('alice@example.com', 30)",
-            users.insert(or: .Replace, email <- "alice@example.com", age <- 30)
+            users.insert(or: .replace, email <- "alice@example.com", age <- 30)
         )
     }
 
@@ -298,24 +298,24 @@ class QueryIntegrationTests : SQLiteTestCase {
         let managers = users.alias("managers")
 
         let alice = try! db.run(users.insert(email <- "alice@example.com"))
-        try! db.run(users.insert(email <- "betsy@example.com", managerId <- alice))
+        _ = try! db.run(users.insert(email <- "betsy@example.com", managerId <- alice))
 
         for user in try! db.prepare(users.join(managers, on: managers[id] == users[managerId])) {
-            user[users[managerId]]
+            _ = user[users[managerId]]
         }
     }
 
     func test_scalar() {
-        XCTAssertEqual(0, db.scalar(users.count))
-        XCTAssertEqual(false, db.scalar(users.exists))
+        XCTAssertEqual(0, try! db.scalar(users.count))
+        XCTAssertEqual(false, try! db.scalar(users.exists))
 
         try! InsertUsers("alice")
-        XCTAssertEqual(1, db.scalar(users.select(id.average)))
+        XCTAssertEqual(1, try! db.scalar(users.select(id.average)))
     }
 
     func test_pluck() {
         let rowid = try! db.run(users.insert(email <- "alice@example.com"))
-        XCTAssertEqual(rowid, db.pluck(users)![id])
+        XCTAssertEqual(rowid, try! db.pluck(users)![id])
     }
 
     func test_insert() {

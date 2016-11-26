@@ -10,7 +10,7 @@ class ConnectionTests : SQLiteTestCase {
     }
 
     func test_init_withInMemory_returnsInMemoryConnection() {
-        let db = try! Connection(.InMemory)
+        let db = try! Connection(.inMemory)
         XCTAssertEqual("", db.description)
     }
 
@@ -20,12 +20,12 @@ class ConnectionTests : SQLiteTestCase {
     }
 
     func test_init_withTemporary_returnsTemporaryConnection() {
-        let db = try! Connection(.Temporary)
+        let db = try! Connection(.temporary)
         XCTAssertEqual("", db.description)
     }
 
     func test_init_withURI_returnsURIConnection() {
-        let db = try! Connection(.URI("\(NSTemporaryDirectory())/SQLite.swift Tests.sqlite3"))
+        let db = try! Connection(.uri("\(NSTemporaryDirectory())/SQLite.swift Tests.sqlite3"))
         XCTAssertEqual("\(NSTemporaryDirectory())/SQLite.swift Tests.sqlite3", db.description)
     }
 
@@ -87,27 +87,33 @@ class ConnectionTests : SQLiteTestCase {
     }
 
     func test_scalar_preparesRunsAndReturnsScalarValues() {
-        XCTAssertEqual(0, db.scalar("SELECT count(*) FROM users WHERE admin = 0") as? Int64)
-        XCTAssertEqual(0, db.scalar("SELECT count(*) FROM users WHERE admin = ?", 0) as? Int64)
-        XCTAssertEqual(0, db.scalar("SELECT count(*) FROM users WHERE admin = ?", [0]) as? Int64)
-        XCTAssertEqual(0, db.scalar("SELECT count(*) FROM users WHERE admin = $admin", ["$admin": 0]) as? Int64)
+        XCTAssertEqual(0, try! db.scalar("SELECT count(*) FROM users WHERE admin = 0") as? Int64)
+        XCTAssertEqual(0, try! db.scalar("SELECT count(*) FROM users WHERE admin = ?", 0) as? Int64)
+        XCTAssertEqual(0, try! db.scalar("SELECT count(*) FROM users WHERE admin = ?", [0]) as? Int64)
+        XCTAssertEqual(0, try! db.scalar("SELECT count(*) FROM users WHERE admin = $admin", ["$admin": 0]) as? Int64)
         AssertSQL("SELECT count(*) FROM users WHERE admin = 0", 4)
     }
 
+    func test_execute_comment() {
+        try! db.run("-- this is a comment\nSELECT 1")
+        AssertSQL("-- this is a comment", 0)
+        AssertSQL("SELECT 1", 0)
+    }
+
     func test_transaction_executesBeginDeferred() {
-        try! db.transaction(.Deferred) {}
+        try! db.transaction(.deferred) {}
 
         AssertSQL("BEGIN DEFERRED TRANSACTION")
     }
 
     func test_transaction_executesBeginImmediate() {
-        try! db.transaction(.Immediate) {}
+        try! db.transaction(.immediate) {}
 
         AssertSQL("BEGIN IMMEDIATE TRANSACTION")
     }
 
     func test_transaction_executesBeginExclusive() {
-        try! db.transaction(.Exclusive) {}
+        try! db.transaction(.exclusive) {}
 
         AssertSQL("BEGIN EXCLUSIVE TRANSACTION")
     }
@@ -192,7 +198,7 @@ class ConnectionTests : SQLiteTestCase {
     func test_updateHook_setsUpdateHook_withInsert() {
         async { done in
             db.updateHook { operation, db, table, rowid in
-                XCTAssertEqual(Operation.Insert, operation)
+                XCTAssertEqual(Connection.Operation.insert, operation)
                 XCTAssertEqual("main", db)
                 XCTAssertEqual("users", table)
                 XCTAssertEqual(1, rowid)
@@ -206,7 +212,7 @@ class ConnectionTests : SQLiteTestCase {
         try! InsertUser("alice")
         async { done in
             db.updateHook { operation, db, table, rowid in
-                XCTAssertEqual(Operation.Update, operation)
+                XCTAssertEqual(Connection.Operation.update, operation)
                 XCTAssertEqual("main", db)
                 XCTAssertEqual("users", table)
                 XCTAssertEqual(1, rowid)
@@ -220,7 +226,7 @@ class ConnectionTests : SQLiteTestCase {
         try! InsertUser("alice")
         async { done in
             db.updateHook { operation, db, table, rowid in
-                XCTAssertEqual(Operation.Delete, operation)
+                XCTAssertEqual(Connection.Operation.delete, operation)
                 XCTAssertEqual("main", db)
                 XCTAssertEqual("users", table)
                 XCTAssertEqual(1, rowid)
@@ -238,7 +244,7 @@ class ConnectionTests : SQLiteTestCase {
             try! db.transaction {
                 try self.InsertUser("alice")
             }
-            XCTAssertEqual(1, db.scalar("SELECT count(*) FROM users") as? Int64)
+            XCTAssertEqual(1, try! db.scalar("SELECT count(*) FROM users") as? Int64)
         }
     }
 
@@ -252,7 +258,7 @@ class ConnectionTests : SQLiteTestCase {
                 }
             } catch {
             }
-            XCTAssertEqual(0, db.scalar("SELECT count(*) FROM users") as? Int64)
+            XCTAssertEqual(0, try! db.scalar("SELECT count(*) FROM users") as? Int64)
         }
     }
 
@@ -268,36 +274,36 @@ class ConnectionTests : SQLiteTestCase {
                 }
             } catch {
             }
-            XCTAssertEqual(0, db.scalar("SELECT count(*) FROM users") as? Int64)
+            XCTAssertEqual(0, try! db.scalar("SELECT count(*) FROM users") as? Int64)
         }
     }
 
     func test_createFunction_withArrayArguments() {
         db.createFunction("hello") { $0[0].map { "Hello, \($0)!" } }
 
-        XCTAssertEqual("Hello, world!", db.scalar("SELECT hello('world')") as? String)
-        XCTAssert(db.scalar("SELECT hello(NULL)") == nil)
+        XCTAssertEqual("Hello, world!", try! db.scalar("SELECT hello('world')") as? String)
+        XCTAssert(try! db.scalar("SELECT hello(NULL)") == nil)
     }
 
     func test_createFunction_createsQuotableFunction() {
         db.createFunction("hello world") { $0[0].map { "Hello, \($0)!" } }
 
-        XCTAssertEqual("Hello, world!", db.scalar("SELECT \"hello world\"('world')") as? String)
-        XCTAssert(db.scalar("SELECT \"hello world\"(NULL)") == nil)
+        XCTAssertEqual("Hello, world!", try! db.scalar("SELECT \"hello world\"('world')") as? String)
+        XCTAssert(try! db.scalar("SELECT \"hello world\"(NULL)") == nil)
     }
 
     func test_createCollation_createsCollation() {
-        db.createCollation("NODIACRITIC") { lhs, rhs in
-            return lhs.compare(rhs, options: .DiacriticInsensitiveSearch)
+        try! db.createCollation("NODIACRITIC") { lhs, rhs in
+            return lhs.compare(rhs, options: .diacriticInsensitive)
         }
-        XCTAssertEqual(1, db.scalar("SELECT ? = ? COLLATE NODIACRITIC", "cafe", "café") as? Int64)
+        XCTAssertEqual(1, try! db.scalar("SELECT ? = ? COLLATE NODIACRITIC", "cafe", "café") as? Int64)
     }
 
     func test_createCollation_createsQuotableCollation() {
-        db.createCollation("NO DIACRITIC") { lhs, rhs in
-            return lhs.compare(rhs, options: .DiacriticInsensitiveSearch)
+        try! db.createCollation("NO DIACRITIC") { lhs, rhs in
+            return lhs.compare(rhs, options: .diacriticInsensitive)
         }
-        XCTAssertEqual(1, db.scalar("SELECT ? = ? COLLATE \"NO DIACRITIC\"", "cafe", "café") as? Int64)
+        XCTAssertEqual(1, try! db.scalar("SELECT ? = ? COLLATE \"NO DIACRITIC\"", "cafe", "café") as? Int64)
     }
 
     func test_interrupt_interruptsLongRunningQuery() {
@@ -310,7 +316,8 @@ class ConnectionTests : SQLiteTestCase {
         let stmt = try! db.prepare("SELECT *, sleep(?) FROM users", 0.1)
         try! stmt.run()
 
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(10 * NSEC_PER_MSEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), db.interrupt)
+        let deadline = DispatchTime.now() + Double(Int64(10 * NSEC_PER_MSEC)) / Double(NSEC_PER_SEC)
+        _ = DispatchQueue.global(priority: .background).asyncAfter(deadline: deadline, execute: db.interrupt)
         AssertThrows(try stmt.run())
     }
 
